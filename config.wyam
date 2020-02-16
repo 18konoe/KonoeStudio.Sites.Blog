@@ -1,0 +1,8 @@
+#recipe Blog
+
+// Customize your settings and add new ones here
+Settings[Keys.Host] = "test.konoe.studio";
+Settings[BlogKeys.Title] = "Konoe Studio";
+Settings[BlogKeys.Description] = "Test site for Konoe Studio";
+
+// Add any pipeline customizations here

@@ -1,0 +1,11 @@
+# Visual Studio
+.vs/
+
+# Cake build
+tools/
+!tools/packages.config
+
+# Wyam
+wwwroot/
+config.wyam.hash
+config.wyam.dll
