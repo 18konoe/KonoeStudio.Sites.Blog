@@ -12,16 +12,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        
+      - name: Setup .Net Core by script
+        run: |
+          wget https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh
+          ./dotnet-install.sh
 
-      - name: Setup .NET Core 2.1.803
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 2.1.803
-
-      - name: Setup .NET Core 3.1.101
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 3.1.101
+#      - name: Setup .NET Core 3.1.101
+#        uses: actions/setup-dotnet@v1
+#        with:
+#          dotnet-version: 3.1.101
 
       - name: Install Wyam Tool
         run: dotnet tool restore
