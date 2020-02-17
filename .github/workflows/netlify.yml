@@ -16,10 +16,10 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.100
-      - name: Install Wyam Tool
-        run: dotnet tool install --global Wyam.Tool
-      - name: Build Wyam
-        run: Wyam build
+      - name: Install Wyam Tool and Build
+        run: |
+          dotnet tool install --global Wyam.Tool
+          wyam build
       - name: Netlify Deploy
         uses: jsmrcaga/action-netlify-deploy@v1.0.1
         with:
