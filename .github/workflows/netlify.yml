@@ -22,26 +22,17 @@ jobs:
           sudo apt-get update -y
           sudo apt-get install dotnet-sdk-3.1 -y
 
-#      - name: Setup .NET Core 3.1.101
-#        uses: actions/setup-dotnet@v1
-#        with:
-#          dotnet-version: 3.1.101
-
       - name: Install Wyam Tool
         run: dotnet tool restore
 
       - name: Build
         run: dotnet tool run wyam build
 
-      - name: Netlify Deploy
-        uses: jsmrcaga/action-netlify-deploy@master
+      - name: Create Zip
+        uses: TheDoctor0/zip-release@v0.2.1
         with:
-          # Auth token to use with netlify
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          # Your Netlify site id
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          # A deploy message
-          NETLIFY_DEPLOY_MESSAGE: Deployed from master
-          # Directory where built files are stored
-          build_directory: output
-          NETLIFY_DEPLOY_TO_PROD: true
+        filename: output.zip
+        path: output
+
+      - name: Netlify Deploy
+        run: "curl -H 'Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}' -H 'Content-Type: application/zip' --data-binary output.zip https://api.netlify.com/api/v1/sites/${{ secrets.NETLIFY_SITE_ID }}/deploys"
