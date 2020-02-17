@@ -18,7 +18,7 @@ jobs:
           dotnet-version: 3.1.100
       - name: Install Wyam Tool and Build
         run: |
-          dotnet tool install --global Wyam.Tool
+          dotnet tool install Wyam.Tool
           wyam build
       - name: Netlify Deploy
         uses: jsmrcaga/action-netlify-deploy@v1.0.1
