@@ -31,8 +31,8 @@ jobs:
       - name: Create Zip
         uses: TheDoctor0/zip-release@v0.2.1
         with:
-        filename: output.zip
-        path: output
+          filename: output.zip
+          path: output
 
       - name: Netlify Deploy
         run: "curl -H 'Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}' -H 'Content-Type: application/zip' --data-binary output.zip https://api.netlify.com/api/v1/sites/${{ secrets.NETLIFY_SITE_ID }}/deploys"
