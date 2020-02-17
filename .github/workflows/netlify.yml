@@ -29,7 +29,7 @@ jobs:
         run: dotnet tool run wyam build
 
       - name: Create Zip
-        run: zip output.zip output/*
+        run: zip output.zip -r output/*
 
       - name: Netlify Deploy
         run: "curl -H 'Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}' -H 'Content-Type: application/zip' --data-binary '@output.zip' https://api.netlify.com/api/v1/sites/${{ secrets.NETLIFY_SITE_ID }}/deploys"
