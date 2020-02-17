@@ -25,7 +25,7 @@ jobs:
 
       - name: Install Wyam Tool and Build
         run: |
-          dotnet install -g wyam.tool
+          dotnet tool install -g wyam.tool
           wyam build
 
       - name: Netlify Deploy
