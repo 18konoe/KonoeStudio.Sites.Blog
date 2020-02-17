@@ -44,3 +44,4 @@ jobs:
           NETLIFY_DEPLOY_MESSAGE: Deployed from master
           # Directory where built files are stored
           build_directory: output
+          NETLIFY_DEPLOY_TO_PROD: ${{ github.ref == 'master' }}
