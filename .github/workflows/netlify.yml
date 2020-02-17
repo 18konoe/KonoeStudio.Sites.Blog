@@ -34,7 +34,7 @@ jobs:
         run: dotnet tool run wyam build
 
       - name: Netlify Deploy
-        uses: jsmrcaga/action-netlify-deploy@v1.0.1
+        uses: jsmrcaga/action-netlify-deploy@master
         with:
           # Auth token to use with netlify
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
