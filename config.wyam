@@ -1,9 +1,11 @@
 #recipe Blog
-//#theme Phantom
 
 // Customize your settings and add new ones here
 Settings[Keys.Host] = "test.konoe.studio";
 Settings[BlogKeys.Title] = "Konoe Studio";
 Settings[BlogKeys.Description] = "Test site for Konoe Studio";
+Settings[BlogKeys.NetlifyRedirects] = true;
+Settings[BlogKeys.MarkdownConfiguration] = "advanced+bootstrap+hardlinebreak";
 
 // Add any pipeline customizations here
+ShortcodeCollection.Add("Foo", (string x) => $"ABC{x}XYZ");
