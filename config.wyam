@@ -8,4 +8,39 @@ Settings[BlogKeys.NetlifyRedirects] = true;
 Settings[BlogKeys.MarkdownConfiguration] = "advanced+bootstrap+hardlinebreak";
 
 // Add any pipeline customizations here
-ShortcodeCollection.Add("Foo", (string x) => $"ABC{x}XYZ");
+ShortcodeCollection.Add("Gisting", (KeyValuePair<string, string>[] args, string content, IDocument document, IExecutionContext context) =>
+{
+    ConvertingDictionary arguments = args.ToDictionary(
+                context,
+                "Id",
+                "Username",
+                "File");
+            arguments.RequireKeys("Id");
+            return context.GetShortcodeResult(
+                $"<script src=\"//gist.github.com/{arguments.String("Username", x => x + "/")}{arguments.String("Id")}.js"
+                + $"{arguments.String("File", x => "?file=" + x)}\" type=\"text/javascript\"></script>");
+});
+
+ShortcodeCollection.Add("Gist-embed", (KeyValuePair<string, string>[] args, string content, IDocument document, IExecutionContext context) =>
+{
+    ConvertingDictionary arguments = args.ToDictionary(
+                context,
+                "Id",
+                "File",
+                "Line",
+                "Highlight",
+                "Caption");
+            arguments.RequireKeys("Id");
+            return context.GetShortcodeResult(
+                $"<code class=\"gist-embed\"" +
+                $" data-gist-id=\"{arguments.String("Id")}\"" +
+                $" data-gist-file=\"{arguments.String("File")}\"" +
+                $" data-gist-hide-footer=\"false\"" +
+                $" data-gist-hide-line-numbers=\"false\"" +
+                $" data-gist-line=\"{arguments.String("Line")}\"" +
+                $" data-gist-highlight-line=\"{arguments.String("Highlight")}\"" +
+                $" data-gist-caption=\"{arguments.String("Caption")}\"" +
+                $" data-gist-show-loading=\"true\"" +
+                $" data-gist-show-spinner=\"true\"" +
+                $"></code>");
+});

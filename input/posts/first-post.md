@@ -33,7 +33,7 @@ public class SafeDevInfoHandle : SafeHandle
     public override bool IsInvalid => handle == IntPtr.Zero;
 }
 ```
-<?# Foo ?>123<?#/ Foo ?>
+
 
 <?# Gist 1bef37990c863bac23e6a4be06e4ac62 /?>
 
