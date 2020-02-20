@@ -1,0 +1,16 @@
+Title: All Categories
+---
+<div class="container-sm-height">
+    <div class="row row-sm-height">
+        <div class="col-sm-12 col-sm-height">
+            @foreach (IDocument categoryDocument in Documents[BlogEx.Categories]
+                .GroupBy(x => x.String(BlogExKeys.Category)).Select(x => x.Where(p => p.Get<int>(Keys.CurrentPage) == 1).First())
+                .OrderByDescending(x => x.Get<int>(Keys.TotalItems)))
+            {
+                string category = categoryDocument.String(BlogExKeys.Category);
+                string postCount = categoryDocument.String(Keys.TotalItems);
+                <a role="button" href="@Context.GetLink(categoryDocument)" class="btn btn-default btn-sm"> @category (@postCount)</a>
+            }
+        </div>
+    </div>
+</div>

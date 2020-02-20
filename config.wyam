@@ -1,34 +1,34 @@
-#recipe Blog
+#recipe BlogEx
+
+#n Wyam.Common
+#n Wyam.Core
+#n Wyam.Feeds
+#n Wyam.Html
+#n Wyam.Less
+#n Wyam.Markdown
+#n Wyam.Razor
+#n Wyam.Sass
+#n Wyam.Web
+#n Wyam.Yaml
+#n KonoeStudio.Wyam.BlogEx
+
 
 // Customize your settings and add new ones here
 Settings[Keys.Host] = "test.konoe.studio";
-Settings[BlogKeys.Title] = "Konoe Studio";
-Settings[ExtraKeys.Title2] = "Konoe Studio 2";
-Settings[BlogKeys.Description] = "Test site for Konoe Studio";
-Settings[BlogKeys.NetlifyRedirects] = true;
-Settings[BlogKeys.MarkdownConfiguration] = "advanced+bootstrap+hardlinebreak";
+Settings[BlogExKeys.Title] = "Konoe Studio";
+Settings[BlogExKeys.Description] = "Test site for Konoe Studio";
+Settings[BlogExKeys.NetlifyRedirects] = true;
+Settings[BlogExKeys.MarkdownConfiguration] = "advanced+bootstrap+hardlinebreak";
 
 // Extra Keys
-public static class ExtraKeys
+public static class BlogEx
 {
-    public const string Title2 = nameof(Title2);
+    public const string Category = nameof(Category);
+    public const string Categories = nameof(Categories);
 }
 
 // Add any pipeline customizations here
-ShortcodeCollection.Add("Gisting", (KeyValuePair<string, string>[] args, string content, IDocument document, IExecutionContext context) =>
-{
-    ConvertingDictionary arguments = args.ToDictionary(
-                context,
-                "Id",
-                "Username",
-                "File");
-            arguments.RequireKeys("Id");
-            return context.GetShortcodeResult(
-                $"<script src=\"//gist.github.com/{arguments.String("Username", x => x + "/")}{arguments.String("Id")}.js"
-                + $"{arguments.String("File", x => "?file=" + x)}\" type=\"text/javascript\"></script>");
-});
-
-ShortcodeCollection.Add("Gist-embed", (KeyValuePair<string, string>[] args, string content, IDocument document, IExecutionContext context) =>
+ShortcodeCollection.Add("Gist", (KeyValuePair<string, string>[] args, string content, IDocument document, IExecutionContext context) =>
 {
     ConvertingDictionary arguments = args.ToDictionary(
                 context,
@@ -60,9 +60,10 @@ ShortcodeCollection.Add("Lightbox", (KeyValuePair<string, string>[] args, string
                 "Title");
             arguments.RequireKeys("File");
             return context.GetShortcodeResult(
-                $"<a" +
-                $" href=\"{arguments.String("File")}\"" +
+                $"<a href=\"{arguments.String("File")}\"" +
                 $" data-lightbox=\"{document.Id}\"" +
-                $" data-title=\"{arguments.String("Title")}\"" +
-                $"><img class=\"img-fluid\" src=\"{arguments.String("File")}\"></a>");
+                $" data-title=\"{arguments.String("Title")}\">" +
+                $"<img class=\"img-fluid\" src=\"{arguments.String("File")}\"></a>");
 });
+
+//#a assembly/KonoeStudio.Wyam.BlogEx.dll

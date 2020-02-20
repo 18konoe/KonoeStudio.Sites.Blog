@@ -1,4 +1,4 @@
-Title: All Tags
+Title: All Categories
 ---
 <div class="container-sm-height">
     <div class="row row-sm-height">
@@ -25,14 +25,14 @@ Title: All Tags
         </div>
 
         <div class="col-sm-4 col-sm-height">
-            @foreach (IDocument tagDocument in Documents[BlogEx.Tags]
-                .GroupBy(x => x.String(BlogExKeys.Tag)).Select(x => x.Where(p => p.Get<int>(Keys.CurrentPage) == 1).First())
+            @foreach (IDocument categoryDocument in Documents[BlogEx.Categories]
+                .GroupBy(x => x.String(BlogExKeys.Category)).Select(x => x.Where(p => p.Get<int>(Keys.CurrentPage) == 1).First())
                 .OrderByDescending(x => x.Get<int>(Keys.TotalItems)))
             {
-                string tagName = tagDocument.String(BlogExKeys.Tag);
-                string postCount = tagDocument.String(Keys.TotalItems);
-                string buttonStyle = tagName == Model.String(BlogExKeys.Tag) ? "btn-primary" : "btn-default";
-                <a role="button" href="@Context.GetLink(tagDocument)" class="btn @buttonStyle btn-xs">@tagName (@postCount)</a>
+                string categoryName = categoryDocument.String(BlogExKeys.Category);
+                string postCount = categoryDocument.String(Keys.TotalItems);
+                string buttonStyle = categoryName == Model.String(BlogExKeys.Category) ? "btn-primary" : "btn-default";
+                <a role="button" href="@Context.GetLink(categoryDocument)" class="btn @buttonStyle btn-xs">@categoryName (@postCount)</a>
             }
         </div>
     </div>

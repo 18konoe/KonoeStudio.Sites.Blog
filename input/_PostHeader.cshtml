@@ -1,16 +1,16 @@
 @{
-    var Lead = Model.String(BlogKeys.Lead);
-    var Published = Model.Get<DateTime>(BlogKeys.Published);   
-    var Tags = Model.Get<string[]>(BlogKeys.Tags);
+    var Lead = Model.String(BlogExKeys.Lead);
+    var Published = Model.Get<DateTime>(BlogExKeys.Published);
+    var Tags = Model.Get<string[]>(BlogExKeys.Tags);
 }
 
 <div class="post-heading">
-    <h1>@Model.WithoutSettings.String(BlogKeys.Title)</h1>
+    <h1>@Model.WithoutSettings.String(BlogExKeys.Title)</h1>
     @if(!string.IsNullOrWhiteSpace(Lead))
     {
         <h2 class="subheading">@Lead</h2>
-    }            
-    <div class="meta">        
+    }
+    <div class="meta">
         @if (Published != default(DateTime))
         {
             <text>Published on @Published.ToLongDateString(Context)<br></text>
@@ -21,12 +21,12 @@
         <div class="tags">
             @foreach (string tag in Tags.OrderBy(x => x))
             {
-                IDocument tagDocument = Documents[Blog.Tags].FirstOrDefault(x => x.String(BlogKeys.Tag) == tag && x.Get<int>(Keys.CurrentPage) == 1);
+                IDocument tagDocument = Documents[BlogEx.Tags].FirstOrDefault(x => x.String(BlogExKeys.Tag) == tag && x.Get<int>(Keys.CurrentPage) == 1);
                 if(tagDocument != null)
-                {                
+                {
                     <a role="button" href="@Context.GetLink(tagDocument)" class="btn btn-default btn-xs">@tag</a>
                 }
             }
-        </div>     
-    } 
+        </div>
+    }
 </div>

@@ -1,11 +1,90 @@
-img.img-fluid {
-  width: 50%;
+/* Background */
+
+/* Font */
+body {
+  font-family: "Helvetica",
+    "Arial",
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    YuGothic,
+    "Yu Gothic",
+    "メイリオ",
+    Meiryo,
+    sans-serif;
+  font-size: 18px;
+  color: #333333;
 }
 
+/* Image */
+.post-preview img.img-fluid {
+  max-width: 80%;
+}
+
+.entry-content img.img-fluid {
+  max-width: 80%;
+}
+
+a img:hover,
+a img:focus {
+  cursor: pointer;
+}
+
+a[data-lightbox] img:hover,
+a[data-lightbox] img:focus {
+  cursor: zoom-in;
+}
+
+/* Gist */
 code.gist-embed {
   padding: unset;
 }
 
+/* bootstrap */
 .alert p {
   margin: unset;
 }
+
+/* h2 */
+h2.post-title {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.entry-content h2 {
+  margin: 2.5em 0 .7em;
+  font-size: 1.4em;
+  line-height: 1.6;
+}
+
+.entry-content h2 {
+  position: relative;
+  background: #f1f8ff;
+  padding: 0.25em 0.5em;
+  border-left: solid 2em #5c9ee7;
+}
+
+.entry-content h2:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f303";
+  position: absolute;
+  padding: 0em;
+  color: white;
+  left: -1.35em;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* h3 */
+.entry-content h3 {
+  margin: 2.6em 0 .7em;
+  padding: 10px 0 10px 10px;
+  border-left-width: 4px;
+  border-left-style: solid;
+  font-size: 1.2em;
+  line-height: 1.5;
+  border-color: #51a8dd;
+}
+
+/* code */

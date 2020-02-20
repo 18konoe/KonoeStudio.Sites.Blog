@@ -34,7 +34,7 @@ public class SafeDevInfoHandle : SafeHandle
 }
 ```
 
-<?# Gist 1bef37990c863bac23e6a4be06e4ac62 /?>
+<?# Gist 34dfb637dc055658611db19adc31a982 DependencyInjectionModel.cs 3-11 3 Caption="INoMeanInterface, NoMeanClass" /?>
 
 <?# YouTube woUcH7G3MAw /?>
 

@@ -6,9 +6,9 @@ Title: Archive
 
 @{
     foreach(IGrouping<int, IDocument> group in Model.DocumentList(Keys.PageDocuments)
-        .Where(x => x.ContainsKey(BlogKeys.Published))
-        .OrderByDescending(x => x.Get<DateTime>(BlogKeys.Published))
-        .GroupBy(x => x.Get<DateTime>(BlogKeys.Published).Year)
+        .Where(x => x.ContainsKey(BlogExKeys.Published))
+        .OrderByDescending(x => x.Get<DateTime>(BlogExKeys.Published))
+        .GroupBy(x => x.Get<DateTime>(BlogExKeys.Published).Year)
         .OrderByDescending(x => x.Key))
     {
         <h1>@group.Key</h1>
@@ -17,11 +17,11 @@ Title: Archive
     }
 
     <ul class="pager">
-        <li class="previous">                
+        <li class="previous">
             @if(Model.Bool(Keys.HasPreviousPage))
             {
                 <a href="@(Context.GetLink(Model.Document(Keys.PreviousPage)))"><span aria-hidden="true">&larr;</span> Newer</a>
-            }                
+            }
         </li>
         <li class="next">
             @if(Model.Bool(Keys.HasNextPage))
