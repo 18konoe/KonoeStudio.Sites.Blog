@@ -66,4 +66,7 @@ ShortcodeCollection.Add("Lightbox", (KeyValuePair<string, string>[] args, string
                 $"<img class=\"img-fluid\" src=\"{arguments.String("File")}\"></a>");
 });
 
+ShortcodeCollection.Add("Blue", (string s) => $"<span class=\"keiko_blue\">{s}</span>");
+ShortcodeCollection.Add("Red", (string s) => $"<span class=\"keiko_red\">{s}</span>");
+
 //#a assembly/KonoeStudio.Wyam.BlogEx.dll

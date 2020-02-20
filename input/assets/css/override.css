@@ -1,4 +1,94 @@
+/* Sidebar */
+h4.widgettitle {
+  margin-top: 0px;
+}
+
+.widgettitle {
+  color: #fcfaf2;
+  background-color: #7db9de;
+}
+
+.widgettitle {
+  margin-bottom: 0;
+  padding-top: 14px;
+  padding-right: 18px;
+  padding-bottom: 14px;
+  padding-left: 18px;
+  font-size: 1.2em;
+}
+
+.sidebar .sidebar_part .widgettitle:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  padding-right: 4px;
+}
+
+.sidebar .widget_categories .widgettitle:before {
+  content: "\f0ca";
+}
+
+.sidebar .widget_tag_cloud .widgettitle:before {
+  content: "\f02c";
+}
+
+/* Shortcode */
+.keiko_blue {
+  background: linear-gradient(transparent 50%, rgba(107, 182, 255, .24) 50%);
+}
+
+.keiko_red {
+  background: linear-gradient(transparent 50%, rgba(255, 88, 88, .24) 50%);
+}
+
 /* Background */
+#entry {
+  background-color: #f1f8ff;
+}
+
+body {
+  background-color: #eaedf2;
+}
+
+article.post-preview {
+  background-color: #FFF;
+  padding: 10px 25px;
+}
+
+.sidebar_part {
+  background-color: #FFF;
+  margin: 0 0 25px
+}
+
+article.post-preview:first-child,
+article.post-preview:nth-child(2),
+article.post-preview:first-child,
+article.post-preview:nth-child(2) {
+  animation: fadeIn .7s ease 0s 1 normal;
+}
+
+article.post-preview:hover {
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, .15), 0 0 5px rgba(0, 0, 0, .1);
+  transform: translateY(-4px);
+}
+
+article.post-preview {
+  position: relative;
+  width: 100%;
+  margin: 0 0 25px;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, .12), 0 2px 3px 0 rgba(0, 0, 0, .22);
+  cursor: pointer;
+  transition: .2s ease-in-out;
+}
+
+:focus {
+  outline: -webkit-focus-ring-color auto 1px;
+}
+
+user agent stylesheet article {
+  display: block;
+}
 
 /* Font */
 body {
@@ -15,6 +105,10 @@ body {
   color: #333333;
 }
 
+.dfont {
+  font-family: "Quicksand", "Helvetica", "Arial", "Hiragino Kaku Gothic ProN", "Hiragino Sans", YuGothic, "Yu Gothic", "メイリオ", Meiryo, sans-serif;
+}
+
 /* Image */
 .post-preview img.img-fluid {
   max-width: 80%;
@@ -22,6 +116,7 @@ body {
 
 .entry-content img.img-fluid {
   max-width: 80%;
+  border: 1px #bfbfbf solid;
 }
 
 a img:hover,

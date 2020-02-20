@@ -1,14 +1,14 @@
-Title: 'KonoeStudio.Libs.DependencyInjection'
+Title: 自作した.NET C#用 DI コンテナの使い方説明
 Published: 4/25/2019
 Categories: プログラミング
-Tags: C#, Nuget
-Lead: 自作した.NET C#用の DI コンテナの使い方説明
+Tags: [C#, Nuget]
+Lead: 'How to use: KonoeStudio.Libs.DependencyInjection'
 
 ---
 
 先日、GitHub に自作の C#用 DI コンテナを MIT ライセンスで公開しました。
 
-[![KonoeStudio.Libs.DependencyInjection - GitHub](../img/github/KonoeStudio.Libs.DependencyInjection.png)](https://github.com/18konoe/KonoeStudio.Libs.DependencyInjection)
+[![KonoeStudio.Libs.DependencyInjection - GitHub](../img/2019/04/KonoeStudio.Libs.DependencyInjection.png)](https://github.com/18konoe/KonoeStudio.Libs.DependencyInjection)
 
 .NET Framework 4.5 と.NET Standard 2.0 の両対応です。
 :::{.alert .alert-warning}

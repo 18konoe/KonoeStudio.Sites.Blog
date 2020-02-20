@@ -1,65 +1,65 @@
-<hr class="visible-xs-block" />
-
-        @if(Documents[BlogEx.Categories].Any())
-        {
-            <h5>Categories</h5>
-            <div>
-                @foreach (IDocument categoryDocument in Documents[BlogEx.Categories]
-                    .GroupBy(x => x.String(BlogExKeys.Category)).Select(x => x.Where(p => p.Get<int>(Keys.CurrentPage) == 1).First())
-                    .OrderByDescending(x => x.Get<int>(Keys.TotalItems)).Take(10))
-                {
-                    string category = categoryDocument.String(BlogExKeys.Category);
-                    string postCount = categoryDocument.String(Keys.TotalItems);
-                    <a role="button" href="@Context.GetLink(categoryDocument)" class="btn btn-default btn-sm"> @category (@postCount)</a>
-                }
-            </div>
-            <ul class="pager">
-                <li class="next">
-                    <a href="@Context.GetLink("categories/index.html")">View All Categories &rarr;</a>
-                </li>
-            </ul>
-        }
-
-        @if(Documents[BlogEx.Tags].Any())
-        {
-            <h5>Tags</h5>
-            <div>
-                @foreach (IDocument tagDocument in Documents[BlogEx.Tags]
-                    .GroupBy(x => x.String(BlogExKeys.Tag)).Select(x => x.Where(p => p.Get<int>(Keys.CurrentPage) == 1).First())
-                    .OrderByDescending(x => x.Get<int>(Keys.TotalItems)).Take(10))
-                {
-                    string tag = tagDocument.String(BlogExKeys.Tag);
-                    string postCount = tagDocument.String(Keys.TotalItems);
-                    <a role="button" href="@Context.GetLink(tagDocument)" class="btn btn-default btn-sm"> @tag (@postCount)</a>
-                }
-            </div>
-            <ul class="pager">
-                <li class="next">
-                    <a href="@Context.GetLink("tags/index.html")">View All Tags &rarr;</a>
-                </li>
-            </ul>
-        }
-
-
-        @if(!Context.Bool(BlogExKeys.IndexPaging))
-        {
-            <hr />
-            <h5>Older Posts</h5>
-            <ul class="list-unstyled">
-                @foreach(IDocument post in Documents[BlogEx.BlogPosts].Skip(Model.DocumentList(Keys.PageDocuments).Count).Take(4))
-                {
-                    // TODO: The skip above needs to line up with the number of posts on the index page
-                    // Also turn this section off if the index is paged
-                    <li><a href="@Context.GetLink(post)">@post.WithoutSettings.String(BlogExKeys.Title)</a></li>
-                }
-            </ul>
-            @if(Context.Bool(BlogExKeys.GenerateArchive))
+<div class="categories sidebar_part widget_categories">
+    @if(Documents[BlogEx.Categories].Any())
+    {
+        <h4 class="widgettitle dfont has-fa-before">カテゴリー</h4>
+        <div>
+            @foreach (IDocument categoryDocument in Documents[BlogEx.Categories]
+                .GroupBy(x => x.String(BlogExKeys.Category)).Select(x => x.Where(p => p.Get<int>(Keys.CurrentPage) == 1).First())
+                .OrderByDescending(x => x.Get<int>(Keys.TotalItems)).Take(10))
             {
-                <ul class="pager">
-                    <li class="next">
-                        <a href="@Context.GetLink(Context.String(BlogExKeys.PostsPath))">Archive &rarr;</a>
-                    </li>
-                </ul>
+                string category = categoryDocument.String(BlogExKeys.Category);
+                string postCount = categoryDocument.String(Keys.TotalItems);
+                <a role="button" href="@Context.GetLink(categoryDocument)" class="btn btn-default btn-sm"> @category (@postCount)</a>
             }
+        </div>
+        <ul class="pager">
+            <li class="next">
+                <a href="@Context.GetLink("categories/index.html")">View All Categories &rarr;</a>
+            </li>
+        </ul>
+    }
+</div>
+<div class="tags sidebar_part widget_tag_cloud">
+    @if(Documents[BlogEx.Tags].Any())
+    {
+        <h4 class="widgettitle dfont has-fa-before">タグ一覧</h4>
+        <div>
+            @foreach (IDocument tagDocument in Documents[BlogEx.Tags]
+                .GroupBy(x => x.String(BlogExKeys.Tag)).Select(x => x.Where(p => p.Get<int>(Keys.CurrentPage) == 1).First())
+                .OrderByDescending(x => x.Get<int>(Keys.TotalItems)).Take(10))
+            {
+                string tag = tagDocument.String(BlogExKeys.Tag);
+                string postCount = tagDocument.String(Keys.TotalItems);
+                <a role="button" href="@Context.GetLink(tagDocument)" class="btn btn-default btn-sm"> @tag (@postCount)</a>
+            }
+        </div>
+        <ul class="pager">
+            <li class="next">
+                <a href="@Context.GetLink("tags/index.html")">View All Tags &rarr;</a>
+            </li>
+        </ul>
+    }
+</div>
+<div class="older_posts sidebar_part">
+    @if(!Context.Bool(BlogExKeys.IndexPaging))
+    {
+        <hr />
+        <h5>Older Posts</h5>
+        <ul class="list-unstyled">
+            @foreach(IDocument post in Documents[BlogEx.BlogPosts].Skip(Model.DocumentList(Keys.PageDocuments).Count).Take(4))
+            {
+                // TODO: The skip above needs to line up with the number of posts on the index page
+                // Also turn this section off if the index is paged
+                <li><a href="@Context.GetLink(post)">@post.WithoutSettings.String(BlogExKeys.Title)</a></li>
+            }
+        </ul>
+        @if(Context.Bool(BlogExKeys.GenerateArchive))
+        {
+            <ul class="pager">
+                <li class="next">
+                    <a href="@Context.GetLink(Context.String(BlogExKeys.PostsPath))">Archive &rarr;</a>
+                </li>
+            </ul>
         }
-This is Sidebar
+    }
+</div>

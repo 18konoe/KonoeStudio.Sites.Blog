@@ -14,7 +14,7 @@
                 }
                 first = false;
                 string lead = post.String(BlogExKeys.Lead);
-                <div class="post-preview">
+                <article class="post-preview">
                     <a href="@Context.GetLink(post)">
                         <h2 class="post-title">@post.WithoutSettings.String(BlogExKeys.Title)</h2>
                         @if(!string.IsNullOrWhiteSpace(lead))
@@ -31,7 +31,7 @@
                     {
                         @Html.Raw(post.String(BlogExKeys.Excerpt))
                     }
-                </div>
+                </article>
             }
         }
         <ul class="pager">
