@@ -5,7 +5,7 @@ Tags: Introduction
 ---
 
 This is my
- first post!
+first post!
 
 Test code:
 
@@ -34,7 +34,6 @@ public class SafeDevInfoHandle : SafeHandle
 }
 ```
 
-
 <?# Gist 1bef37990c863bac23e6a4be06e4ac62 /?>
 
 <?# YouTube woUcH7G3MAw /?>
@@ -54,8 +53,8 @@ This is an example[^3] of footnote usage.
 [^3]: An example footnote.
 
 1. Level 1
-    i. Level i
-        a. Level a
+   i. Level i
+   a. Level a
 
 - [ ] a task list item
 - [ ] list syntax required
@@ -76,14 +75,14 @@ This is a Bootstrap alert.
 
 ""ハゲ太郎"" was first published in 1921.
 
-*[HTML]: Hypertext Markup Language
+\*[HTML]: Hypertext Markup Language
 
 Later in a text we are using HTML and it becomes an abbr tag HTML
 
-![てすと](../img/IMG_20200106_100330.jpg)
+<?# Lightbox ../img/IMG_20200106_100330.jpg Title="Test Title" /?>
 
-Right | Left | Default | Center
------:|:-----|---------|:-----:
-12    | 12   | 12      | 12
-123   | 123  | 123     | 123
-1     | 1    | 1       | 1
+| Right | Left | Default | Center |
+| ----: | :--- | ------- | :----: |
+|    12 | 12   | 12      |   12   |
+|   123 | 123  | 123     |  123   |
+|     1 | 1    | 1       |   1    |
