@@ -2,7 +2,7 @@
     @if(Documents[BlogEx.Categories].Any())
     {
         <h4 class="widgettitle dfont has-fa-before">カテゴリー</h4>
-        <div>
+        <div class="widgetcontent">
             @foreach (IDocument categoryDocument in Documents[BlogEx.Categories]
                 .GroupBy(x => x.String(BlogExKeys.Category)).Select(x => x.Where(p => p.Get<int>(Keys.CurrentPage) == 1).First())
                 .OrderByDescending(x => x.Get<int>(Keys.TotalItems)).Take(10))
@@ -23,7 +23,7 @@
     @if(Documents[BlogEx.Tags].Any())
     {
         <h4 class="widgettitle dfont has-fa-before">タグ一覧</h4>
-        <div>
+        <div class="widgetcontent">
             @foreach (IDocument tagDocument in Documents[BlogEx.Tags]
                 .GroupBy(x => x.String(BlogExKeys.Tag)).Select(x => x.Where(p => p.Get<int>(Keys.CurrentPage) == 1).First())
                 .OrderByDescending(x => x.Get<int>(Keys.TotalItems)).Take(10))

@@ -16,16 +16,32 @@
 // Customize your settings and add new ones here
 Settings[Keys.Host] = "test.konoe.studio";
 Settings[BlogExKeys.Title] = "Konoe Studio";
-Settings[BlogExKeys.Description] = "Test site for Konoe Studio";
+Settings[BlogExKeys.Description] = "書きたいこと・感じたこと・残しておきたいこと";
 Settings[BlogExKeys.NetlifyRedirects] = true;
 Settings[BlogExKeys.MarkdownConfiguration] = "advanced+bootstrap+hardlinebreak";
 
 // Extra Keys
-public static class BlogEx
+public static class ExtraKeys
 {
-    public const string Category = nameof(Category);
-    public const string Categories = nameof(Categories);
+    public const string GoogleAnalyticsTrackingId = nameof(GoogleAnalyticsTrackingId);
+    public const string FaviconPath = nameof(FaviconPath);
+    public const string Icon512Path = nameof(Icon512Path);
+    public const string Icon270Path = nameof(Icon270Path);
+    public const string Icon192Path = nameof(Icon192Path);
+    public const string Icon180Path = nameof(Icon180Path);
+    public const string Icon32Path = nameof(Icon32Path);
+    public const string Twitter = nameof(Twitter);
+    public const string IsShowOg = nameof(IsShowOg);
 }
+
+Settings[ExtraKeys.GoogleAnalyticsTrackingId] = "UA-92166208-1";
+Settings[ExtraKeys.Icon512Path] = "/img/icon/cropped-snow2-nbg-512.png";
+Settings[ExtraKeys.Icon270Path] = "/img/icon/cropped-snow2-nbg-512-270x270.png";
+Settings[ExtraKeys.Icon192Path] = "/img/icon/cropped-snow2-nbg-512-192x192.png";
+Settings[ExtraKeys.Icon180Path] = "/img/icon/cropped-snow2-nbg-512-180x180.png";
+Settings[ExtraKeys.Icon32Path] = "/img/icon/cropped-snow2-nbg-512-32x32.png";
+Settings[ExtraKeys.Twitter] = "@18konoe";
+Settings[ExtraKeys.IsShowOg] = true;
 
 // Add any pipeline customizations here
 ShortcodeCollection.Add("Gist", (KeyValuePair<string, string>[] args, string content, IDocument document, IExecutionContext context) =>
